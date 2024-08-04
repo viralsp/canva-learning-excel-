@@ -1,0 +1,236 @@
+body {
+  position: relative;
+  margin: 0px;
+}
+
+.options_menu {
+  display: flex;
+  gap: 2em;
+  padding: 10px 0 30px 30px;
+  background-color: #f5f5f5;
+}
+.options_menu button {
+  transition: all 200ms ease-in-out;
+  border: none;
+  border-bottom: 2px solid transparent;
+  height: 2em;
+}
+.options_menu button:hover {
+  border: none;
+  border-bottom: 2px solid #107c41;
+  background-color: #caead8;
+}
+
+.graphOptions, .textOptions, .calcdiv {
+  display: none;
+  background-color: #f5f5f5;
+  padding-left: 30px;
+  gap: 2em;
+  height: 40px;
+}
+.graphOptions button, .textOptions button, .calcdiv button {
+  transition: all 200ms ease-in-out;
+  border: none;
+  border-bottom: 2px solid transparent;
+  height: 2em;
+}
+.graphOptions button:hover, .textOptions button:hover, .calcdiv button:hover {
+  border: none;
+  border-bottom: 2px solid #107c41;
+  background-color: #caead8;
+}
+
+.change_sheet {
+  display: flex;
+  position: absolute;
+  top: 100%;
+  padding: 10px 10px 0px 30px;
+  width: 95%;
+  gap: 5px;
+  align-items: stretch;
+}
+.change_sheet button {
+  border: none;
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+.change_sheet button:hover {
+  background-color: #caead8;
+}
+.change_sheet .sheets_Div {
+  display: flex;
+  overflow: scroll;
+  scrollbar-width: none;
+  padding-right: 10px;
+}
+.change_sheet input {
+  width: 70px;
+  border: none;
+  height: 1.5em;
+  display: block;
+  background-color: #f5f5f5;
+}
+.change_sheet input:focus {
+  outline: none;
+}
+.change_sheet input:hover {
+  background-color: #caead8;
+}
+.change_sheet input[data-current] {
+  background-color: #caead8;
+  border: none;
+  border-bottom: 2px solid #107c41;
+}
+
+.containerDiv {
+  position: relative;
+  display: grid;
+  grid-template-columns: 50px calc(100% - 50px);
+  grid-template-rows: 30px calc(100% - 30px);
+  position: relative;
+  overflow: scroll;
+  scrollbar-width: thin;
+  height: 100%;
+  max-height: 80vh;
+  width: 100%;
+  resize: both;
+  scroll-behavior: smooth;
+}
+
+.header, .row, .table {
+  display: block;
+}
+
+.header {
+  left: 50px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  z-index: 2;
+  background-color: #f5f5f5;
+}
+
+.row {
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: sticky;
+  z-index: 2;
+  background-color: #f5f5f5;
+}
+
+.table {
+  left: 50px;
+  top: 30px;
+  position: sticky;
+}
+
+.btn {
+  background: none;
+  border: none;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  background-color: #f5f5f5;
+}
+.btn::before {
+  content: "";
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  border: 7px solid transparent;
+  border-bottom: 7px solid #bfbfbf;
+  border-right: 7px solid #bfbfbf;
+}
+.btn[data-dot]::after {
+  position: absolute;
+  display: block;
+  bottom: 0px;
+  right: 0px;
+  width: 2px;
+  height: 2px;
+  content: "";
+  background: #107c41;
+}
+
+.inputDiv {
+  display: none;
+  position: absolute;
+  box-sizing: border-box;
+  background-color: white;
+  border: 2px solid green;
+}
+.inputDiv input {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  margin-bottom: -1px;
+  padding-bottom: 0px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.findDiv {
+  display: none;
+  position: fixed;
+  left: 40%;
+  top: 30%;
+  z-index: 5;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  height: -moz-fit-content;
+  height: fit-content;
+  gap: 0.5em;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "a a" "b c" "d d" "e e" "f f" "g g" "h i";
+  padding: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid black;
+}
+.findDiv h3 {
+  grid-area: a;
+  text-align: center;
+  color: #107c41;
+  cursor: all-scroll;
+}
+.findDiv span:hover {
+  text-decoration: underline;
+  color: #107c41;
+}
+.findDiv button:hover {
+  background: #caead8;
+}
+
+.graphdiv {
+  background-color: white;
+  display: none;
+  position: fixed;
+  left: 40%;
+  top: 30%;
+  padding-top: 20px;
+  min-width: 100px;
+  min-height: 100px;
+  max-width: 100vw;
+  max-height: 100dvh;
+  z-index: 5;
+  overflow: scroll;
+  scrollbar-width: none;
+  resize: both;
+  box-shadow: 0px 0px 5px 3px rgb(128, 120, 120);
+}
+.graphdiv .closebtn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border: none;
+  background: transparent;
+}
+.graphdiv .closebtn:hover {
+  background: #107c41;
+  color: white;
+}/*# sourceMappingURL=sheet.css.map */
